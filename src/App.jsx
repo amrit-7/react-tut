@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import HeadingComponent from "./Component/Heading/Heading.component";
 const App = () => {
   const [name, setName] = useState("");
-  // useState react di built in hook hai, jo react package to mildi hai, it will give two things, pehle vali is the value and second one is the function to update the value
   const [stringValue, setStringValue] = useState("");
   const handleInputChange = (e) => {
-    setStringValue(e.target.value); // state update krde pye, using setString function
+    setStringValue(e.target.value);
   };
   const handleClick = () => {
     setName(stringValue);
@@ -23,7 +23,7 @@ const App = () => {
     >
       <input placeholder="Enter Name" onChange={handleInputChange} />
       <button onClick={handleClick}>Click me</button>
-      {name}
+      <HeadingComponent data={name} data2={"Hello"} data3={"byebye"} />
     </div>
   );
 };

@@ -1,7 +1,11 @@
-const HeadingComponent = () => {
+const HeadingComponent = (props) => {
+  console.log(
+    "🚀 ~ file: Heading.component.jsx:2 ~ HeadingComponent ~ props:",
+    props.data
+  );
   return (
     <>
-      <div className="btn">HeadingComponent</div>
+      <h1>{props.data}</h1>
     </>
   );
 };
