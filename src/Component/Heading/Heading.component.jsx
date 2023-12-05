@@ -1,11 +1,9 @@
+/* eslint-disable react/prop-types */
 const HeadingComponent = (props) => {
-  console.log(
-    "🚀 ~ file: Heading.component.jsx:2 ~ HeadingComponent ~ props:",
-    props.data
-  );
+  const { data } = props;
   return (
     <>
-      <h1>{props.data}</h1>
+      <h1>{data}</h1>
     </>
   );
 };
