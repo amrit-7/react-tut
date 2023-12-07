@@ -1,22 +1,17 @@
-import { useState } from "react";
-
 /* eslint-disable react/prop-types */
-const Child = ({ name, sendData }) => {
-  const [text, setText] = useState("");
-  const handleSendData = () => {
-    sendData(text);
-  };
-  const handleChangeName = (e) => {
-    setText(e.target.value);
+const Child = (props) => {
+  const { sendData } = props;
+  const handleClick = () => {
+    //api
+    //data manipulate
+    //input
+    const data = "dATA FROM CHILD";
+    sendData(data);
   };
   return (
     <>
       <h1>Child</h1>
-      {name}
-      <input onChange={handleChangeName} />
-      <div style={{ marginTop: "10px" }}>
-        <button onClick={handleSendData}>Send</button>
-      </div>
+      <button onClick={handleClick}>Send</button>
     </>
   );
 };
