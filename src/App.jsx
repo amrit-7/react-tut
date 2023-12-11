@@ -1,57 +1,52 @@
 import { useState } from "react";
 
 const App = () => {
-  const defaultValues = {
-    email: "",
-    password: "",
+  const [todoString, setTodoString] = useState(""); //IMMUTABLE
+  const [todoList, setTodoList] = useState([]);
+  const [count, setCount] = useState(0);
+  const handleChange = (string) => {
+    setTodoString(string);
   };
-  const [formFields, setFormFields] = useState(defaultValues);
-  const [isLoading, setIsLoading] = useState(false);
-  const { email, password } = formFields;
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormFields({ ...formFields, [name]: value });
+  const handleAddTodo = () => {
+    setTodoList([...todoList, { id: count, value: todoString }]);
+    setCount(count + 1);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault(); // prevent page refresh
-    setIsLoading(true);
-    // api
-    setTimeout(() => {
-      console.log(formFields);
-      setFormFields(defaultValues);
-      setIsLoading(false);
-    }, 2000);
-  };
+  console.log(todoList);
   return (
-    <form
+    <div
       style={{
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
-        minHeight: "90vh",
+        alignContent: "center",
+        flexDirection: "column",
       }}
-      onSubmit={handleSubmit}
     >
       <input
-        name="email"
-        value={email}
-        onChange={handleChange}
-        placeholder="email"
+        placeholder="Write your todo"
+        onChange={(e) => handleChange(e.target.value)}
       />
-      <br />
-      <input
-        name="password"
-        value={password}
-        onChange={handleChange}
-        placeholder="password"
-      />
-      <br />
-      <button disabled={isLoading}>
-        {isLoading ? "Loading...." : "Submit"}
-      </button>
-    </form>
+      <button onClick={handleAddTodo}>Add Todo</button>
+
+      <>
+        {todoList.map((todo) => {
+          const { id, value: item } = todo;
+          return (
+            <div
+              key={id}
+              style={{
+                boxShadow: "1px 1px 10px red",
+                height: "100px",
+                width: "200px",
+                margin: "10px",
+                padding: "10px",
+              }}
+            >
+              {item}
+            </div>
+          );
+        })}
+      </>
+    </div>
   );
 };
-
 export default App;
