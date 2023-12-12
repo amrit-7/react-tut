@@ -1,17 +1,83 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 
 const App = () => {
-  const [todoString, setTodoString] = useState(""); //IMMUTABLE
-  const [todoList, setTodoList] = useState([]);
-  const [count, setCount] = useState(0);
+  const users = [
+    {
+      id: 1,
+      name: "Leanne Graham",
+      username: "Bret",
+      email: "Sincere@april.biz",
+    },
+    {
+      id: 2,
+      name: "Ervin Howell",
+      username: "Antonette",
+      email: "Shanna@melissa.tv",
+    },
+    {
+      id: 3,
+      name: "Clementine Bauch",
+      username: "Samantha",
+      email: "Nathan@yesenia.net",
+    },
+    {
+      id: 4,
+      name: "Patricia Lebsack",
+      username: "Karianne",
+      email: "Julianne.OConner@kory.org",
+    },
+    {
+      id: 5,
+      name: "Chelsey Dietrich",
+      username: "Kamren",
+      email: "Lucio_Hettinger@annie.ca",
+    },
+    {
+      id: 6,
+      name: "Mrs. Dennis Schulist",
+      username: "Leopoldo_Corkery",
+      email: "Karley_Dach@jasper.info",
+    },
+    {
+      id: 7,
+      name: "Kurtis Weissnat",
+      username: "Elwyn.Skiles",
+      email: "Telly.Hoeger@billy.biz",
+    },
+    {
+      id: 8,
+      name: "Nicholas Runolfsdottir V",
+      username: "Maxime_Nienow",
+      email: "Sherwood@rosamond.me",
+    },
+    {
+      id: 9,
+      name: "Glenna Reichert",
+      username: "Delphine",
+      email: "Chaim_McDermott@dana.io",
+    },
+    {
+      id: 10,
+      name: "Clementina DuBuque",
+      username: "Moriah.Stanton",
+      email: "Rey.Padberg@karina.biz",
+    },
+  ];
+  const [allUsers, setTodoList] = useState(users);
+  //default value in the state
+  const [searchString, setSearchString] = useState("");
   const handleChange = (string) => {
-    setTodoString(string);
+    setSearchString(string);
   };
-  const handleAddTodo = () => {
-    setTodoList([...todoList, { id: count, value: todoString }]);
-    setCount(count + 1);
-  };
-  console.log(todoList);
+  const filteredData = allUsers.filter((user) => {
+    return user.name.toLowerCase().includes(searchString.toLowerCase());
+  });
+  // const user = {
+  //   name: "Amrit",
+  // };
+  // console.log(user.name.toLowerCase().includes("M".toLowerCase()));
+  //             "amrit"                          "m"
   return (
     <div
       style={{
@@ -21,31 +87,43 @@ const App = () => {
         flexDirection: "column",
       }}
     >
-      <input
-        placeholder="Write your todo"
-        onChange={(e) => handleChange(e.target.value)}
-      />
-      <button onClick={handleAddTodo}>Add Todo</button>
-
-      <>
-        {todoList.map((todo) => {
-          const { id, value: item } = todo;
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <input
+          placeholder="Search"
+          type="search"
+          style={{ width: "250px", height: "50px", fontSize: "16px" }}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {filteredData.map((todo) => {
+          const { id, name } = todo;
           return (
             <div
-              key={id}
               style={{
-                boxShadow: "1px 1px 10px red",
-                height: "100px",
-                width: "200px",
                 margin: "10px",
+                border: "1px solid #aeaeae",
+                width: "200px",
                 padding: "10px",
               }}
+              key={id}
             >
-              {item}
+              {name}
             </div>
           );
         })}
-      </>
+      </div>
     </div>
   );
 };
