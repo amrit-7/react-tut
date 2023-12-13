@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
+  console.log("🚀 ~ file: App.jsx:6 ~ App ~ todos:", todos);
   const [stringValue, setStringValue] = useState("");
   const handleTodoChange = (e) => {
     setStringValue(e.target.value);
@@ -10,14 +11,25 @@ const App = () => {
   const handleAddTodo = (e) => {
     e.preventDefault();
     setTodos([...todos, stringValue]);
+    setStringValue("");
   };
   return (
     <>
       <form onSubmit={handleAddTodo}>
-        <input placeholder="Enter Todo" onChange={handleTodoChange} />
+        <input
+          value={stringValue}
+          placeholder="Enter Todo"
+          onChange={handleTodoChange}
+        />
         <button>Add Todo</button>
       </form>
-      {todos}
+      {todos.map((todo, index) => {
+        return (
+          <div key={index} style={{ border: "1px solid red", width: "200px" }}>
+            {todo}
+          </div>
+        );
+      })}
     </>
   );
 };
