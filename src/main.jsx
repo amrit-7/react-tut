@@ -1,4 +1,4 @@
 import ReactDOM from "react-dom/client";
-import Parent from "./App.jsx";
+import UseEffect from "./useeffectFun";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<Parent />);
+ReactDOM.createRoot(document.getElementById("root")).render(<UseEffect />);
