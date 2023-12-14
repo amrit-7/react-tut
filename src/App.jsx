@@ -1,63 +1,38 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
-
+import users from "../users.json";
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  console.log("🚀 ~ file: App.jsx:6 ~ App ~ todos:", todos);
-  const [stringValue, setStringValue] = useState("");
-  const handleTodoChange = (e) => {
-    setStringValue(e.target.value);
+  const [searchString, setSearchString] = useState("");
+  const handleSearch = (e) => {
+    setSearchString(e.target.value);
   };
-  const handleAddTodo = (e) => {
-    e.preventDefault();
-    setTodos([...todos, stringValue]);
-    setStringValue("");
-  };
+  const filteredUsers = users.filter((user) => {
+    return user.name.toLowerCase().includes(searchString.toLowerCase());
+  });
   return (
-    <>
-      <form onSubmit={handleAddTodo}>
-        <input
-          value={stringValue}
-          placeholder="Enter Todo"
-          onChange={handleTodoChange}
-        />
-        <button>Add Todo</button>
-      </form>
-      {todos.map((todo, index) => {
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <input placeholder="Search User" type="search" onChange={handleSearch} />
+      {filteredUsers.map((user) => {
+        const { id, name, email } = user;
         return (
-          <div key={index} style={{ border: "1px solid red", width: "200px" }}>
-            {todo}
+          <div
+            key={id}
+            style={{
+              border: "1px solid #aeaeae",
+              width: "200px",
+              borderRadius: 10,
+              padding: 5,
+              marginTop: 5,
+            }}
+          >
+            <strong>{name}</strong>
+            <p>{email}</p>
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
 export default App;
-
-// const App = () => {
-//   const [todos, setTodos] = useState([]);
-//   console.log("🚀 ~ file: App.jsx:29 ~ App ~ todos:", todos);
-//   const [stringValue, setStringValue] = useState("");
-//   const [count, setCount] = useState(0);
-//   const handleTodoChange = (e) => {
-//     setStringValue(e.target.value);
-//   };
-//   const handleAddTodo = (e) => {
-//     e.preventDefault();
-//     setTodos([...todos, { id: count, value: stringValue }]);
-//     setCount(count + 1);
-//   };
-//   return (
-//     <>
-//       <form onSubmit={handleAddTodo}>
-//         <input placeholder="Enter Todo" onChange={handleTodoChange} />
-//         <button>Add Todo</button>
-//       </form>
-//       {/* {todos} */}
-//     </>
-//   );
-// };
-
-// export default App;
