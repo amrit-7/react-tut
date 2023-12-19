@@ -1,38 +1,18 @@
-import { useState } from "react";
-import users from "../users.json";
+import { Routes, Route } from "react-router";
+import HomePage from "./Pages/HomePage/HomePage";
+import LoginPage from "./Pages/Login/LoginPage";
+import { BrowserRouter } from "react-router-dom";
+import RegisterPage from "./Pages/Register/RegisterPage";
 const App = () => {
-  const [searchString, setSearchString] = useState("");
-  const handleSearch = (e) => {
-    setSearchString(e.target.value);
-  };
-  const filteredUsers = users.filter((user) => {
-    return user.name.toLowerCase().includes(searchString.toLowerCase());
-  });
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <input placeholder="Search User" type="search" onChange={handleSearch} />
-      {filteredUsers.map((user) => {
-        const { id, name, email } = user;
-        return (
-          <div
-            key={id}
-            style={{
-              border: "1px solid #aeaeae",
-              width: "200px",
-              borderRadius: 10,
-              padding: 5,
-              marginTop: 5,
-            }}
-          >
-            <strong>{name}</strong>
-            <p>{email}</p>
-          </div>
-        );
-      })}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} /> {/* Homepage */}
+        <Route path="/login/register" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
-
+// route   root
 export default App;
