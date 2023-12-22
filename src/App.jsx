@@ -4,10 +4,11 @@ import LoginPage from "./Pages/Login/LoginPage";
 import { BrowserRouter } from "react-router-dom";
 import RegisterPage from "./Pages/Register/RegisterPage";
 import AllCategories from "./Pages/Users/AllUsers";
-import Mens from "./Pages/Users/Mens";
 import Womens from "./Pages/Users/Womens";
 import Kids from "./Pages/Users/Kids";
 import Notfound from "./Pages/NotFound/Notfound";
+import MensRoutes from "./Pages/Mens/MensRoutes";
+import UserRoutes from "./Pages/Users/UserRoutes";
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,9 +20,10 @@ const App = () => {
           <Route path="*" element={<Notfound />} />
           <Route index element={<AllCategories />} />
           <Route path="womens" element={<Womens />} />
-          <Route path="mens" element={<Mens />} />
+          <Route path="mens/*" element={<MensRoutes />} />
           <Route path="kids" element={<Kids />} />
         </Route>
+        <Route path="/users/*" element={<UserRoutes />} />
       </Routes>
     </BrowserRouter>
   );
