@@ -1,9 +1,8 @@
 import { useParams } from "react-router";
-
 const UserDetails = () => {
-  const { userId } = useParams();
+  const { id } = useParams();
   //api (id)
-  return <div>UserDetails {userId}</div>;
+  return <div>UserDetails {id}</div>;
 };
 
 export default UserDetails;
