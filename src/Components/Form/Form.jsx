@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
-const Form = ({ placeholder }) => {
+const Form = ({ placeholder, setEmail }) => {
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
   return (
     <>
-      <input placeholder={placeholder} />
+      <input placeholder={placeholder} onChange={handleChange} />
     </>
   );
 };

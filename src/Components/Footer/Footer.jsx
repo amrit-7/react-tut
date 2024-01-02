@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/CurrentUser";
+
 const Footer = () => {
+  const {currentUser} = useContext(UserContext)
   return (
     <div
       style={{
@@ -9,7 +13,7 @@ const Footer = () => {
         justifyContent: "center",
       }}
     >
-      Footer @copyright-2023
+      {currentUser} @copyright-2023
     </div>
   );
 };
