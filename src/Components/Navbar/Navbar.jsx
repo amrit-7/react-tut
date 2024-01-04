@@ -3,12 +3,12 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../Contexts/CurrentUser";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-  const navigate = useNavigate()
-  useEffect(()=>{
-    if(!currentUser){
-      navigate("/login")
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
     }
-  },[currentUser])
+  }, [currentUser]);
   return (
     <div
       style={{
@@ -32,5 +32,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;
