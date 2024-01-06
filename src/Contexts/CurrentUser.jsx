@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const UserContext = createContext({
   currentUser: null,

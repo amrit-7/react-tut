@@ -1,8 +1,11 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
+import { UserProvider } from "./Contexts/CurrentUser";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Router>
+    <UserProvider>
+      <App />
+    </UserProvider>
+  </Router>
 );
