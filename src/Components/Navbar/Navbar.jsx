@@ -4,11 +4,7 @@ import { UserContext } from "../../Contexts/CurrentUser";
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!currentUser) {
-      navigate("/login");
-    }
-  }, [currentUser]);
+
   return (
     <div
       style={{

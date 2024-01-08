@@ -30,6 +30,7 @@ const Employees = () => {
   ];
   return (
     <>
+    
       <CardList data={empData} />
     </>
   );

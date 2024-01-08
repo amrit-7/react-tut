@@ -4,11 +4,11 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Layout = () => {
   return (
-    <div className="main-wrapper">
-      <div className="topbar">
+    <div>
+      <div className="header">
         <Navbar />
       </div>
-      <div className="content" style={{ minHeight: "84vh" }}>
+      <div className="main">
         <Outlet />
       </div>
       <div className="footer">
