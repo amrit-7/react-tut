@@ -1,0 +1,58 @@
+ [
+  {
+    "id": 1,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-5.jpg",
+    "tittle": "Grapes",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 2,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-5.jpg",
+    "tittle": "Grapes",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 3,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-2.jpg",
+    "tittle": "Raspberries",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 4,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-4.jpg",
+    "tittle": "Apricots",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 5,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-3.jpg",
+    "tittle": "Apricots",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 6,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-1.jpg",
+    "tittle": "Apricots",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 7,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-2.jpg",
+    "tittle": "Apricots",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  },
+  {
+    "id": 8,
+    "url": "https://themewagon.github.io/fruitables/img/fruite-item-5.jpg",
+    "tittle": "Apricots",
+    "para": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te ",
+    "price": "$4.99 / kg"
+  }
+]

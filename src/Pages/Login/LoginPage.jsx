@@ -1,26 +1,31 @@
-import Form from "../../Components/Form/Form";
 import { useContext, useState } from "react";
-import { UserContext } from "../../Contexts/CurrentUser";
+import { UserContext } from "../../Contexts/CurrentUserContext";
 import { useNavigate } from "react-router";
 
 const LoginPage = () => {
-  const navigate = useNavigate()
-  const {setCurrentUser} = useContext(UserContext)
-  const [name, setName] = useState("");
-  const handleEmail = (childValue) => {
-    setName(childValue);
+  const navigate = useNavigate();
+  const { setCurrentUser } = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const handleChange = (e) => {
+    setEmail(e.target.value);
   };
   const handleLogin = () => {
-    setCurrentUser(name)
-    // api
-    // 200
-    console.log("🚀 ~ file: LoginPage.jsx:20 ~ handleLogin ~ name:", name)
-    navigate("/")
-
+    // API
+    // response
+    const data = {
+      token: "ajhaifhuk4j5t3k",
+      name: "Amritpal",
+      email: email,
+    };
+    setTimeout(() => {
+      setCurrentUser(data);
+      navigate("/");
+    }, 2000);
   };
   return (
     <>
-      <Form placeholder={"Enter Email"} setEmail={handleEmail} />
+      <input placeholder="Enter Email" onChange={handleChange} />
+      <br />
       <button onClick={handleLogin}>Login</button>
     </>
   );

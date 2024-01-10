@@ -2,8 +2,9 @@ import { useState } from "react";
 import data from "../data.json";
 // import CardList from "./Components/CardList";
 import SearchBox from "./Components/SearchBox/SearchBox";
-import CardList from "./Components/CardList";
+import CardList from "./Components/Card/CardList";
 import { Link } from "react-router-dom";
+import FeatureSection from "./Components/FeatureCard/FeatureSection";
 const NewApp = () => {
   const [searchString, setSearchString] = useState("");
   const getDataFromChild = (string) => {
@@ -48,6 +49,8 @@ const NewApp = () => {
           </div>
         );
       })} */}
+      <FeatureSection isfor={"fruits"} />
+      <FeatureSection isfor={"veggies"} />
     </div>
   );
 };

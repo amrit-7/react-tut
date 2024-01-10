@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router";
-import Card from "./Card/Card";
+import Card from "./Card";
 const CardList = (props) => {
   const { data } = props;
  

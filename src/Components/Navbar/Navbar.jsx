@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../Contexts/CurrentUser";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../Contexts/CurrentUserContext";
+
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
-  const navigate = useNavigate();
-
   return (
     <div
       style={{
@@ -24,7 +23,13 @@ const Navbar = () => {
       <Link to={"/"}>
         <button>Home</button>
       </Link>
-      <div>{currentUser}</div>
+      <div style={{ display: "flex", justifyContent: "end" }}>
+        {currentUser ? (
+          <h4>{currentUser ? currentUser.name : null}</h4>
+        ) : (
+          <Link to={"/login"}>Login</Link>
+        )}
+      </div>
     </div>
   );
 };
