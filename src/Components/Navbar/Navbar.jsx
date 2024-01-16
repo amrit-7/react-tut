@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../Contexts/CurrentUserContext";
+import { UserContext } from "../../Reducers/UserReducer";
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, removeCurrentUser } = useContext(UserContext);
+  const handleLogout = () => {
+    removeCurrentUser();
+  };
   return (
     <div
       style={{
@@ -25,7 +28,10 @@ const Navbar = () => {
       </Link>
       <div style={{ display: "flex", justifyContent: "end" }}>
         {currentUser ? (
-          <h4>{currentUser ? currentUser.name : null}</h4>
+          <>
+            <h4>{currentUser ? currentUser.name : null}</h4>
+            <button onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <Link to={"/login"}>Login</Link>
         )}

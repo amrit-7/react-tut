@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../Contexts/CurrentUserContext";
 import { useNavigate } from "react-router";
+import { UserContext } from "../../Reducers/UserReducer";
 
 const LoginPage = () => {
   const navigate = useNavigate();
