@@ -57,6 +57,7 @@ export const UserProvider = ({ children }) => {
   };
   const setProfileImage = () => {
     dispatch(createAction(ACTION_TYPE.SET_PROFILE));
+    //dispatch({type:ACTION_TYPE.SET_PROFILE, payload:"imgsrc"})
   };
   const value = {
     currentUser,
